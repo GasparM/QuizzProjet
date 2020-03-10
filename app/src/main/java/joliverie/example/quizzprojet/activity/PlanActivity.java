@@ -1,4 +1,4 @@
 package joliverie.example.quizzprojet.activity;
 
-public class PlanAcitivity {
+public class PlanActivity {
 }
