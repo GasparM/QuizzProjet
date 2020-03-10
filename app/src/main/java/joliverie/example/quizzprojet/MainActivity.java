@@ -23,11 +23,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         BDAdapter bd = new BDAdapter(this);
-        onCreate(bd);
-
+        bd.open();
         Lieu unLieu = new Lieu( "Nantes");
         Lieu unLieu2 = new Lieu( "Paris");
         Lieu unLieu3 = new Lieu( "Lyon");

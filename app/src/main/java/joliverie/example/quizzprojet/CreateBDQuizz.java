@@ -3,8 +3,11 @@ package joliverie.example.quizzprojet;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class CreateBDQuizz extends SQLiteOpenHelper {
+    private static final String TAG = "CreateBDQuizz";
+
     public static String DATABASE_NAME = "quizz_database";
     //tables
     private static final String TABLE_QUESTION = "table_question";
@@ -33,6 +36,8 @@ public class CreateBDQuizz extends SQLiteOpenHelper {
 
     //méthodes d'instance permettant la gestion de l'objet
     public void onCreate(SQLiteDatabase db){
+        Log.d(TAG, "onCreate ... ");
+
         // appelée lorsqu’aucune base n’existe et que la classe utilitaire doit en créer une
         //on créé la table à partir de la requête écrite dans la variable CREATE_BDD
         db.execSQL(CREATE_QUESTION_TABLE);
@@ -42,6 +47,8 @@ public class CreateBDQuizz extends SQLiteOpenHelper {
     }
     // appelée si la version de la base a changé
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        Log.d(TAG, "onUpgrade ... ");
+
         //On peut  supprimer la table et de la recréer
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + ";");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_REPONSE + ";");
