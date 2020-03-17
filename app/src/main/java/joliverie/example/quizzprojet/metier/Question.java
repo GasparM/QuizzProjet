@@ -4,42 +4,28 @@ import java.util.ArrayList;
 
 public class Question {
     protected int id_question;
-    protected int text_question;
-    protected int difficulte;
-    protected ArrayList<Reponse> lesReponses;
+    protected String text_question;
+    protected int id_lieu;
 
-    public Question(int id_question, int text_question, int difficulte, ArrayList<Reponse> lesReponses) {
-        this.id_question = id_question;
+    public Question(String text_question, int id_lieu) {
         this.text_question = text_question;
-        this.difficulte = difficulte;
-        this.lesReponses = lesReponses;
+        this.id_lieu = id_lieu;
     }
-
-    public ArrayList<Reponse> getLesReponses() {return lesReponses;}
-
-    public void setLesReponses(ArrayList<Reponse> lesReponses) {this.lesReponses = lesReponses;}
 
     public int getId_question() {
         return id_question;
     }
 
-    public void setId_question(int id_question) {
-        this.id_question = id_question;
-    }
-
-    public int getText_question() {
+    public String getText_question() {
         return text_question;
     }
 
-    public void setText_question(int text_question) {
+    public void setText_question(String text_question) {
         this.text_question = text_question;
     }
 
-    public int getDifficulte() {
-        return difficulte;
-    }
+    public int getId_lieu() { return id_lieu; }
 
-    public void setDifficulte(int difficulte) {
-        this.difficulte = difficulte;
-    }
+    public void setId_lieu(int id_lieu) { this.id_lieu = id_lieu; }
+
 }

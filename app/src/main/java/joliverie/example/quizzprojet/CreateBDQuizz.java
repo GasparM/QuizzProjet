@@ -22,11 +22,13 @@ public class CreateBDQuizz extends SQLiteOpenHelper {
     private static final String COL_REP_VALIDE = "reponse_valide";
     private static final String COL_LIEU_LIBELLE = "lieu_libelle";
     private static final String COL_PLAN_LIBELLE = "plan_libelle";
+    private static final String COL_ID_LIEU = "id_lieu";
+    private static final String COL_ID_QUESTION = "id_question";
 
     //table create Statements
-    private static final String CREATE_QUESTION_TABLE = "CREATE TABLE " + TABLE_QUESTION + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_TEXT_QUESTION + " TEXT NOT NULL);";
-    //private static final String CREATE_REPONSE_TABLE = "CREATE TABLE " + TABLE_REPONSE + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ COL_TEXT_REPONSE + " TEXT NOT NULL " + COL_REP_VALIDE + " TEXT NOT NULL);";
-    private static final String CREATE_LIEU_TABLE = "CREATE TABLE " + TABLE_LIEU + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_LIEU_LIBELLE + " TEXT NOT NULL);";
+    private static final String CREATE_QUESTION_TABLE = "CREATE TABLE " + TABLE_QUESTION + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_TEXT_QUESTION + " TEXT NOT NULL, " + COL_ID_LIEU +" INTEGER NOT NULL);";
+    private static final String CREATE_REPONSE_TABLE = "CREATE TABLE " + TABLE_REPONSE + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ COL_TEXT_REPONSE + " TEXT NOT NULL, " + COL_REP_VALIDE + " TEXT NOT NULL, " + COL_ID_QUESTION+" INTEGER NOT NULL);";
+    private static final String CREATE_LIEU_TABLE = "CREATE TABLE " + TABLE_LIEU + " ("+ COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_LIEU_LIBELLE + " TEXT NOT NULL);";
     private static final String CREATE_PLAN_TABLE = "CREATE TABLE " + TABLE_PLAN + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_PLAN_LIBELLE + " TEXT NOT NULL);";
 
     //constructeur paramétré
@@ -41,7 +43,7 @@ public class CreateBDQuizz extends SQLiteOpenHelper {
         // appelée lorsqu’aucune base n’existe et que la classe utilitaire doit en créer une
         //on créé la table à partir de la requête écrite dans la variable CREATE_BDD
         db.execSQL(CREATE_QUESTION_TABLE);
-        //db.execSQL(CREATE_REPONSE_TABLE);
+        db.execSQL(CREATE_REPONSE_TABLE);
         db.execSQL(CREATE_LIEU_TABLE);
         db.execSQL(CREATE_PLAN_TABLE);
     }
