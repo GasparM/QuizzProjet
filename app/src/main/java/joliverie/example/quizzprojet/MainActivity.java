@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         Question uneQuestion = new Question ("Quel animal as tu ? ", 2);
         Question uneQuestion2 = new Question ("Quel age as-tu", 3);
         Question uneQuestion3 = new Question ("Quel taille fait-tu ?", 1);
-        Question uneQuestion4 = new Question ("Date de sortie de Iron Man", 2);
+        Question uneQuestion4 = new Question ("Date de sortie de Iron Man", 1);
 
         Reponse uneReponse = new Reponse("chat", 1, 1 );
         Reponse uneReponse2 = new Reponse("chien", 0, 1 );

@@ -20,6 +20,7 @@ public class RulesActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), MapActivity.class);
+                myIntent.putExtra("ID_LIEU", 2);
                 startActivityForResult(myIntent, 0);
             }
 

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">QuizzProjet</string>
+    <string name="reponseRouge"></string>
+    <string name="reponseVert"></string>
+    <string name="reponseCyan"></string>
+    <string name="reponseViolet"></string>
+    <string name="question"></string>
 </resources>
