@@ -27,37 +27,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_100_ans_joliverie" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Règles du jeu :"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="316dp"
-        android:layout_height="316dp"
-        android:text="Le but de ce quiz est de vous faire suivre un circuit dans l’enceinte de la joliverie en répondant à des questions.  Chaque lieu possèdent plusieurs questions qui comportent 4 réponses dont une bonne et 3 mauvaises. Après avoir fini les questions d’un lieu, l’application vous demandera de vous diriger vers le lieu suivant. A la fin du jeu, un score vous sera donné en fonction du temps de réponse par question.  "
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline6"
-        app:layout_constraintVertical_bias="0.791" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="274dp"
         android:layout_height="69dp"
         android:background="#343434"
-        android:text="JOUER"
+        android:text="J'Y SUIS !"
         android:textColor="#fff"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,14 +58,6 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.25"
-        app:layout_constraintGuide_begin="20dp" />
-
-    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -105,5 +72,15 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="1.0"
         app:layout_constraintGuide_begin="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="393dp"
+        android:layout_height="458dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:srcCompat="@drawable/ic_launcher_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
