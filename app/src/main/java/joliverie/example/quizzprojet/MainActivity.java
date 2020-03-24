@@ -1,10 +1,14 @@
 package joliverie.example.quizzprojet;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.database.Cursor;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -21,10 +25,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
+        Button next = (Button) findViewById(R.id.button);
+        next.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), RulesActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
+
+        // Insertion pour test
         BDAdapter bd = new BDAdapter(this);
         bd.open();
-
 
         Lieu unLieu = new Lieu( "Nantes", 1);
         Lieu unLieu2 = new Lieu( "Paris", 2);
@@ -53,15 +67,10 @@ public class MainActivity extends AppCompatActivity {
         Reponse uneReponse15 = new Reponse("-457", 0, 4 );
         Reponse uneReponse16 = new Reponse("2009", 0, 4 );
 
-
-
         Plan unPlan = new Plan("urlNantes");
         Plan unPlan2 = new Plan("urlParis");
         Plan unPlan3 = new Plan("urlLyon");
         Plan unPlan4 = new Plan("urlMarseille");
-
-
-        Log.d(TAG, "logtest : " + unLieu.toString());
 
         bd.insererLieu(unLieu);
         bd.insererLieu(unLieu2);
@@ -96,12 +105,12 @@ public class MainActivity extends AppCompatActivity {
         bd.insererPlan(unPlan4);
 
         bd.close();
-
+        /*
         ListView listViewArticles = (ListView) findViewById(R.id.listViewTest);
         bd = new BDAdapter(this);
         //On ouvre la base de données pour écrire dedans
         bd.open();
-        /*
+
         Cursor c = bd.getDataLieu();
         Toast.makeText(getApplicationContext(), "il y a " + String.valueOf(c.getCount()) + " articles dans la BD", Toast.LENGTH_LONG).show();
         // colonnes à afficher
@@ -111,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         SimpleCursorAdapter dataAdapter = new SimpleCursorAdapter(this, R.layout.activity_main, c, columns, to,0);
         // Assign adapter to ListView
         listViewArticles.setAdapter(dataAdapter);
-        */
+
 
         Cursor c = bd.getQuestionWithLieu(2);
         // colonnes à afficher
@@ -122,6 +131,6 @@ public class MainActivity extends AppCompatActivity {
         // Assign adapter to ListView
         listViewArticles.setAdapter(dataAdapter);
         bd.close();
-
+        */
     }
 }
