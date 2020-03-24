@@ -16,7 +16,7 @@ import joliverie.example.quizzprojet.metier.Reponse;
 public class BDAdapter {
     private static final String TAG = "BDAdapter";
 
-    static final int VERSION_BDD =5;
+    static final int VERSION_BDD = 7;
     private static final String NOM_BDD = "quizz_database";
     static final String TABLE_QUESTION = "table_question";
     static final String TABLE_REPONSE = "table_reponse";
@@ -72,24 +72,6 @@ public class BDAdapter {
     public BDAdapter  close(){
         db.close();
         return null;
-    }
-
-    private ArrayList<Question> cursorToQuestions(Cursor c){ //Cette méthode permet de convertir un cursor en un article
-        //si aucun élément n'a été retourné dans la requête, on renvoie null
-        if (c.getCount() == 0)
-            return null;
-        //Sinon
-        ArrayList<Question> lesQuestions = new ArrayList<Question>() ;
-        c.moveToFirst();   //on se place sur le premier élément
-        do {
-            Question uneQuestion = new Question(null, 0);  //On créé un article
-            //on lui affecte toutes les infos grâce aux infos contenues dans le Cursor
-            uneQuestion.setText_question(c.getString(NUM_COL_TEXT_QUESTION));
-            uneQuestion.setId_lieu(c.getInt(2));
-            lesQuestions.add(uneQuestion);
-        }while(c.moveToNext());
-        c.close();     //On ferme le cursor
-        return lesQuestions;  //On retourne l'article
     }
 
     public long insererQuestion (Question uneQuestion){
@@ -149,8 +131,8 @@ public class BDAdapter {
         return db.rawQuery("SELECT * FROM "+ TABLE_PLAN +" WHERE " + COL_ID_LIEU + " = " + id_lieu +";", null);
     }
 
-    public ArrayList<Question> getQuestionWithLieu(int id_lieu){
-        return cursorToQuestions(db.rawQuery("SELECT * FROM "+ TABLE_QUESTION +" WHERE " + COL_ID_LIEU + " = " + id_lieu +";", null));
+    public Cursor getQuestionWithLieu(int id_lieu){
+        return db.rawQuery("SELECT * FROM "+ TABLE_QUESTION +" WHERE " + COL_ID_LIEU + " = " + id_lieu +";", null);
     }
 
     public Cursor getReponseWithQuestion(int id_question){

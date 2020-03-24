@@ -26,9 +26,7 @@ public class QuestionActivity extends AppCompatActivity {
         BDAdapter bd = new BDAdapter(this);
         bd.open();
 
-        ArrayList<Question> lesQuestions = bd.getQuestionWithLieu(id_lieu);
-        for (Question uneQuestion: lesQuestions) {
-            Log.d("QUESTION", uneQuestion.getText_question()+"   "+uneQuestion.getId_lieu());
-        }
+        Cursor c = bd.getQuestionWithLieu(id_lieu);
+
     }
 }
