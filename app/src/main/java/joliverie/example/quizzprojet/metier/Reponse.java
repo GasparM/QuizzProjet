@@ -6,14 +6,17 @@ public class Reponse {
     protected int id_question;
     protected int valide;
 
-    public Reponse(String text_rep, int valide) {
+    public Reponse(String text_rep, int valide, int id_question) {
         this.text_rep = text_rep;
         this.valide = valide;
+        this.id_question = id_question;
     }
 
     public int getId_reponse() {
         return id_reponse;
     }
+
+    public void setId_reponse(int id_reponse) { this.id_reponse = id_reponse; }
 
     public String getText_rep() {
         return text_rep;

@@ -5,11 +5,14 @@ import java.util.ArrayList;
 public class Lieu {
     protected int id_lieu;
     protected String lib_lieu;
+    protected int id_plan;
 
-
-    public  Lieu (String lieu){
+    public  Lieu (String lieu, int id_plan){
         this.lib_lieu=lieu;
+        this.id_plan=id_plan;
     }
+
+    public int getId_plan() { return id_plan; }
 
     public int getId_lieu() {
         return id_lieu;
@@ -23,6 +26,7 @@ public class Lieu {
         this.lib_lieu = lieu;
     }
 
+    public void setId_plan(int id_plan) { this.id_plan = id_plan;}
 
     @Override
     public String toString() {
