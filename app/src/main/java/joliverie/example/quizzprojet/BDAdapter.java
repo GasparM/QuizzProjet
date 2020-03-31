@@ -16,7 +16,7 @@ import joliverie.example.quizzprojet.metier.Reponse;
 public class BDAdapter {
     private static final String TAG = "BDAdapter";
 
-    static final int VERSION_BDD = 7;
+    static final int VERSION_BDD = 13;
     private static final String NOM_BDD = "quizz_database";
     static final String TABLE_QUESTION = "table_question";
     static final String TABLE_REPONSE = "table_reponse";

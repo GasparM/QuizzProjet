@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Insertion pour test
         BDAdapter bd = new BDAdapter(this);
         bd.open();
-
+        /**
         Lieu unLieu = new Lieu( "Nantes", 1);
         Lieu unLieu2 = new Lieu( "Paris", 2);
         Lieu unLieu3 = new Lieu( "Lyon",3);
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         bd.insererPlan(unPlan2);
         bd.insererPlan(unPlan3);
         bd.insererPlan(unPlan4);
-
+        */
         bd.close();
         /*
         ListView listViewArticles = (ListView) findViewById(R.id.listViewTest);
