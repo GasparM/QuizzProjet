@@ -139,4 +139,8 @@ public class BDAdapter {
     public Cursor getReponseWithQuestion(int id_question){
         return db.rawQuery("SELECT * FROM "+ TABLE_REPONSE +" WHERE " + COL_ID_QUESTION + " = " + id_question +";", null);
     }
+
+    public Cursor getNbQuestionByLieu(int id_lieu){
+        return db.rawQuery("SELECT COUNT(*) FROM "+ TABLE_QUESTION +" WHERE " + COL_ID_LIEU + " = "+id_lieu +";", null );
+    }
 }

@@ -1,29 +1,36 @@
 package joliverie.example.quizzprojet;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-
 import joliverie.example.quizzprojet.metier.Question;
 import joliverie.example.quizzprojet.metier.Reponse;
 
 
-public class QuestionActivity extends AppCompatActivity {
+public class QuestionActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         getSupportActionBar().hide();
-        final int id_lieu = getIntent().getIntExtra("ID_LIEU",1);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+        final int id_lieu = pref.getInt("ID_LIEU", -1);
+        int id_question_actif = getIntent().getIntExtra("ID_QUESTION_ACTIF",0);
+        Button nextQuestionRouge = (Button) findViewById(R.id.buttonRouge);
+        Button nextQuestionVert = (Button) findViewById(R.id.buttonVert);
+        Button nextQuestionCyan = (Button) findViewById(R.id.buttonCyan);
+        Button nextQuestionViolet = (Button) findViewById(R.id.buttonViolet);
 
         BDAdapter bd = new BDAdapter(this);
         bd.open();
@@ -34,26 +41,46 @@ public class QuestionActivity extends AppCompatActivity {
             int id_question = Integer.parseInt(c.getString(0));
             uneQuestion.setId_question(id_question);
             lesQuestions.add(uneQuestion);
-
         }
 
+        ((TextView)findViewById(R.id.question)).setText(lesQuestions.get(id_question_actif).getText_question());
 
         ArrayList<Reponse> lesReponses = new ArrayList<Reponse>();
-        for (Question uneQuestion : lesQuestions){
-            Cursor repCursor=bd.getReponseWithQuestion(uneQuestion.getId_question());
-            for(repCursor.moveToFirst(); !repCursor.isAfterLast(); repCursor.moveToNext()) {
-                Reponse uneReponse = new Reponse(repCursor.getString(1),repCursor.getInt(2),uneQuestion.getId_question());
-                uneReponse.setId_reponse(Integer.parseInt(repCursor.getString(0)));
-                lesReponses.add(uneReponse);
-            }
+        Cursor repCursor=bd.getReponseWithQuestion(lesQuestions.get(id_question_actif).getId_question());
+        for(repCursor.moveToFirst(); !repCursor.isAfterLast(); repCursor.moveToNext()) {
+            Reponse uneReponse = new Reponse(repCursor.getString(1),repCursor.getInt(2),lesQuestions.get(id_question_actif).getId_question());
+            uneReponse.setId_reponse(Integer.parseInt(repCursor.getString(0)));
+            lesReponses.add(uneReponse);
         }
+        nextQuestionRouge.setText(lesReponses.get(0).getText_rep());
+        nextQuestionVert.setText(lesReponses.get(1).getText_rep());
+        nextQuestionCyan.setText(lesReponses.get(2).getText_rep());
+        nextQuestionViolet.setText(lesReponses.get(3).getText_rep());
 
-        for (Reponse uneReponse : lesReponses){
-            Log.d("une reponse", " text : " + uneReponse.getText_rep() + " validate : " + uneReponse.getValide() + " id_question : " + uneReponse.getId_question() + " id_rep "+ uneReponse.getId_reponse());
-        }
-
-
+        nextQuestionRouge.setOnClickListener(this);
+        nextQuestionVert.setOnClickListener(this);
+        nextQuestionCyan.setOnClickListener(this);
+        nextQuestionViolet.setOnClickListener(this);
         bd.close();
+    }
 
+    @Override
+    public void onClick(View v) {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+        final int id_lieu = pref.getInt("ID_LIEU", -1);
+        BDAdapter bd = new BDAdapter(this);
+        bd.open();
+        Cursor c = bd.getNbQuestionByLieu(id_lieu);
+        c.moveToFirst();
+        int nbQuestion = c.getInt(0);
+        int id_question_actif = getIntent().getIntExtra("ID_QUESTION_ACTIF", 0);
+        if (id_question_actif+1 != nbQuestion){
+            Intent myIntent = new Intent(v.getContext(), QuestionActivity.class);
+            myIntent.putExtra("ID_QUESTION_ACTIF", id_question_actif + 1);
+            startActivityForResult(myIntent, 0);
+        }else{
+            Intent myIntent = new Intent(v.getContext(), MapActivity.class);
+            startActivityForResult(myIntent, 0);
+        }
     }
 }
