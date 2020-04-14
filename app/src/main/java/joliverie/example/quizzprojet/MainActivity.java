@@ -3,6 +3,8 @@ package joliverie.example.quizzprojet;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 
 import android.database.Cursor;
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        SharedPreferences pref = getApplication().getSharedPreferences("MyPref",0);
+        Editor editor = pref.edit();
+        editor.clear();
+        editor.commit();
         Button next = (Button) findViewById(R.id.button);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
