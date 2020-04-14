@@ -8,7 +8,18 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import joliverie.example.quizzprojet.metier.Lieu;
+import joliverie.example.quizzprojet.metier.Plan;
+import joliverie.example.quizzprojet.metier.Question;
+import joliverie.example.quizzprojet.metier.Reponse;
+
+import android.widget.ImageView;
+import android.util.Log;
+
 public class MapActivity extends AppCompatActivity {
+    private static final String TAG = "MapActivity";
+
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +37,18 @@ public class MapActivity extends AppCompatActivity {
             }
 
         });
-        /*
+
         BDAdapter bd = new BDAdapter(this);
         bd.open();
-
+        image = (ImageView) findViewById(R.id.imageView4);
         Cursor c = bd.getPlanWithLieu(id_lieu);
-     */
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            Log.d(TAG, "Plan affiché : " + c.getString(1));
 
+            int id = getResources().getIdentifier(c.getString(1), "drawable", getPackageName());
+            image.setImageResource(id);
+        }
+
+        bd.close();
     }
 }
