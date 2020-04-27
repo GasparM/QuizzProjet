@@ -29,7 +29,7 @@ public class CreateBDQuizz extends SQLiteOpenHelper {
     private static final String CREATE_QUESTION_TABLE = "CREATE TABLE " + TABLE_QUESTION + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_TEXT_QUESTION + " TEXT NOT NULL, " + COL_ID_LIEU +" INTEGER NOT NULL);";
     private static final String CREATE_REPONSE_TABLE = "CREATE TABLE " + TABLE_REPONSE + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "+ COL_TEXT_REPONSE + " TEXT NOT NULL, " + COL_REP_VALIDE + " INTEGER, " + COL_ID_QUESTION+" INTEGER NOT NULL);";
     private static final String CREATE_LIEU_TABLE = "CREATE TABLE " + TABLE_LIEU + " ("+ COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_LIEU_LIBELLE + " TEXT NOT NULL);";
-    private static final String CREATE_PLAN_TABLE = "CREATE TABLE " + TABLE_PLAN + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_PLAN_LIBELLE + " TEXT NOT NULL);";
+    private static final String CREATE_PLAN_TABLE = "CREATE TABLE " + TABLE_PLAN + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"+ COL_PLAN_LIBELLE + " TEXT NOT NULL, " + COL_ID_LIEU +" INTEGER NOT NULL);";
 
     //constructeur paramétré
     public CreateBDQuizz(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
