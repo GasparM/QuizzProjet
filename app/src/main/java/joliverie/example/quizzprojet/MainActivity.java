@@ -49,17 +49,17 @@ public class MainActivity extends AppCompatActivity {
         Lieu unLieu = new Lieu( "Nantes", 1);
         Lieu unLieu2 = new Lieu( "Paris", 2);
         Lieu unLieu3 = new Lieu( "Lyon",3);
-        Lieu unLieu4 = new Lieu( "Marseille",4);
 
         Question uneQuestion = new Question ("Quel animal as tu ? ", 2);
         Question uneQuestion2 = new Question ("Quel age as-tu", 3);
         Question uneQuestion3 = new Question ("Quel taille fait-tu ?", 1);
         Question uneQuestion4 = new Question ("Date de sortie de Iron Man", 1);
+        Question uneQuestion5 = new Question ("Date de création de la Joliverie",3);
 
-        Reponse uneReponse = new Reponse("chat", 1, 1 );
-        Reponse uneReponse2 = new Reponse("chien", 0, 1 );
-        Reponse uneReponse3 = new Reponse("poule", 0, 1 );
-        Reponse uneReponse4 = new Reponse("dinausore", 0, 1 );
+        Reponse uneReponse = new Reponse("chat", 1, 5 );
+        Reponse uneReponse2 = new Reponse("chien", 0, 5);
+        Reponse uneReponse3 = new Reponse("poule", 0, 5 );
+        Reponse uneReponse4 = new Reponse("dinausore", 0, 5 );
         Reponse uneReponse5 = new Reponse("2 ans", 1, 2 );
         Reponse uneReponse6 = new Reponse("3 ans", 0, 2 );
         Reponse uneReponse7 = new Reponse("19 ans", 0, 2 );
@@ -72,21 +72,24 @@ public class MainActivity extends AppCompatActivity {
         Reponse uneReponse14 = new Reponse("1999", 0, 4 );
         Reponse uneReponse15 = new Reponse("-457", 0, 4 );
         Reponse uneReponse16 = new Reponse("2009", 0, 4 );
+        Reponse uneReponse17 = new Reponse("1999", 1, 1 );
+        Reponse uneReponse18 = new Reponse("2003", 0, 1 );
+        Reponse uneReponse19 = new Reponse("2009", 0, 1 );
+        Reponse uneReponse20 = new Reponse("-457", 0, 1 );
 
         Plan unPlan = new Plan("urlNantes");
         Plan unPlan2 = new Plan("urlParis");
         Plan unPlan3 = new Plan("urlLyon");
-        Plan unPlan4 = new Plan("urlMarseille");
 
         bd.insererLieu(unLieu);
         bd.insererLieu(unLieu2);
         bd.insererLieu(unLieu3);
-        bd.insererLieu(unLieu4);
 
         bd.insererQuestion(uneQuestion);
         bd.insererQuestion(uneQuestion2);
         bd.insererQuestion(uneQuestion3);
         bd.insererQuestion(uneQuestion4);
+        bd.insererQuestion(uneQuestion5);
 
         bd. insererReponse(uneReponse);
         bd. insererReponse(uneReponse2);
@@ -104,12 +107,16 @@ public class MainActivity extends AppCompatActivity {
         bd. insererReponse(uneReponse14);
         bd. insererReponse(uneReponse15);
         bd. insererReponse(uneReponse16);
+        bd. insererReponse(uneReponse17);
+        bd. insererReponse(uneReponse18);
+        bd. insererReponse(uneReponse19);
+        bd. insererReponse(uneReponse20);
+
 
         bd.insererPlan(unPlan);
         bd.insererPlan(unPlan2);
         bd.insererPlan(unPlan3);
-        bd.insererPlan(unPlan4);
-        */
+        **/
         bd.close();
         /*
         ListView listViewArticles = (ListView) findViewById(R.id.listViewTest);

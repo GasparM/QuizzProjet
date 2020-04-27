@@ -32,17 +32,12 @@ public class MapActivity extends AppCompatActivity {
                     editor.putInt("ID_LIEU", pref.getInt("ID_LIEU",-1)+1);
                 }
                 editor.commit();
-                myIntent.putExtra("ID_QUESTION_ACTIF", 0 );
                 startActivityForResult(myIntent, 0);
             }
 
         });
-        /*
-        BDAdapter bd = new BDAdapter(this);
-        bd.open();
-
-        Cursor c = bd.getPlanWithLieu(id_lieu);
-     */
-
     }
+
+    @Override
+    public void onBackPressed(){}
 }

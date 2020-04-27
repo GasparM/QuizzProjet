@@ -16,7 +16,7 @@ import joliverie.example.quizzprojet.metier.Reponse;
 public class BDAdapter {
     private static final String TAG = "BDAdapter";
 
-    static final int VERSION_BDD = 13;
+    static final int VERSION_BDD = 25;
     private static final String NOM_BDD = "quizz_database";
     static final String TABLE_QUESTION = "table_question";
     static final String TABLE_REPONSE = "table_reponse";
@@ -90,6 +90,7 @@ public class BDAdapter {
         //on lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
         values.put(COL_TEXT_REPONSE, uneReponse.getText_rep());
         values.put(COL_ID_QUESTION, uneReponse.getId_question());
+        values.put(COL_REP_VALIDE, uneReponse.getValide());
         //on insère l'objet dans la BDD via le ContentValues
         return db.insert(TABLE_REPONSE, null, values);
     }
@@ -120,9 +121,7 @@ public class BDAdapter {
     public Cursor getDataPlan(){
         return db.rawQuery("SELECT * FROM TABLE_PLAN", null);
     }
-    public Cursor getDataQuestion(){
-        return db.rawQuery("SELECT * FROM TABLE_QUESTION", null);
-    }
+    public Cursor getDataQuestion(){ return db.rawQuery("SELECT * FROM TABLE_QUESTION", null); }
     public Cursor getDataReponse(){
         return db.rawQuery("SELECT * FROM TABLE_REPONSE", null);
     }
@@ -139,7 +138,19 @@ public class BDAdapter {
         return db.rawQuery("SELECT * FROM "+ TABLE_REPONSE +" WHERE " + COL_ID_QUESTION + " = " + id_question +";", null);
     }
 
+    public Cursor getNbQuestion(){
+        return db.rawQuery("SELECT COUNT(*) FROM "+ TABLE_QUESTION +" ;", null);
+    }
+
     public Cursor getNbQuestionByLieu(int id_lieu){
         return db.rawQuery("SELECT COUNT(*) FROM "+ TABLE_QUESTION +" WHERE " + COL_ID_LIEU + " = "+id_lieu +";", null );
+    }
+
+    public Cursor getLastLieu(){
+        return db.rawQuery("SELECT MAX(_id) FROM "+ TABLE_LIEU +";",null);
+    }
+
+    public Cursor getVraiOuFaux(String text_rep, String text_question){
+        return db.rawQuery("SELECT reponse_valide FROM "+ TABLE_REPONSE+" WHERE "+ COL_TEXT_REPONSE +" = \""+ text_rep +"\" AND "+ COL_ID_QUESTION +" = (SELECT "+ COL_ID+" FROM "+ TABLE_QUESTION+ " WHERE "+COL_TEXT_QUESTION+" = \""+ text_question+"\");",null);
     }
 }

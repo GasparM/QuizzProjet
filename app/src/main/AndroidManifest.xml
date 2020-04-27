@@ -19,6 +19,8 @@
         <activity android:name=".RulesActivity"></activity>
         <activity android:name=".MapActivity"></activity>
         <activity android:name=".QuestionActivity"></activity>
+        <activity android:name=".ScoreActivity"></activity>
+
     </application>
 
 </manifest>
