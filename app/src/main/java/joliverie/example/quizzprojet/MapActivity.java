@@ -51,15 +51,33 @@ public class MapActivity extends AppCompatActivity {
 
         BDAdapter bd = new BDAdapter(this);
         bd.open();
+
         image = (ImageView) findViewById(R.id.imageView4);
         Cursor c = bd.getPlanWithLieu(id_lieu);
+
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            //was working, doesn't work anymore for unknown reasons
+            /*
             Log.d(TAG, "Plan affiché : " + c.getString(1));
 
             int id = getResources().getIdentifier(c.getString(1), "drawable", getPackageName());
             image.setImageResource(id);
+            //image.setImageResource(R.drawable.plan1);
+            */
+            Log.d(TAG, "Plan affiché : " + c.getString(1));
+            if (c.getString(1).equals("R.drawable.plan1")){
+                image.setImageResource(R.drawable.plan1);
+            }
+            else if (c.getString(1).equals("R.drawable.plan2")){
+                image.setImageResource(R.drawable.plan2);
+            }
+            else if (c.getString(1).equals("R.drawable.plan3")){
+                image.setImageResource(R.drawable.plan3);
+            }
+            else if (c.getString(1).equals("R.drawable.plan4")){
+                image.setImageResource(R.drawable.plan4);
+            }
         }
-
         bd.close();
     }
 }

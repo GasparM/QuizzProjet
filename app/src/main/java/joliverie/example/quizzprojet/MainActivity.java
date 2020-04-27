@@ -45,7 +45,10 @@ public class MainActivity extends AppCompatActivity {
         // Insertion pour test
         BDAdapter bd = new BDAdapter(this);
         bd.open();
-/**
+
+        bd.cleartable();
+        Log.d(TAG, "data deleted");
+
         Lieu unLieu = new Lieu( "Nantes", 1);
         Lieu unLieu2 = new Lieu( "Paris", 2);
         Lieu unLieu3 = new Lieu( "Lyon",3);
@@ -88,28 +91,30 @@ public class MainActivity extends AppCompatActivity {
         bd.insererQuestion(uneQuestion3);
         bd.insererQuestion(uneQuestion4);
 
-        bd. insererReponse(uneReponse);
-        bd. insererReponse(uneReponse2);
-        bd. insererReponse(uneReponse3);
-        bd. insererReponse(uneReponse4);
-        bd. insererReponse(uneReponse5);
-        bd. insererReponse(uneReponse6);
-        bd. insererReponse(uneReponse7);
-        bd. insererReponse(uneReponse8);
-        bd. insererReponse(uneReponse9);
-        bd. insererReponse(uneReponse10);
-        bd. insererReponse(uneReponse11);
-        bd. insererReponse(uneReponse12);
-        bd. insererReponse(uneReponse13);
-        bd. insererReponse(uneReponse14);
-        bd. insererReponse(uneReponse15);
-        bd. insererReponse(uneReponse16);
+        bd.insererReponse(uneReponse);
+        bd.insererReponse(uneReponse2);
+        bd.insererReponse(uneReponse3);
+        bd.insererReponse(uneReponse4);
+        bd.insererReponse(uneReponse5);
+        bd.insererReponse(uneReponse6);
+        bd.insererReponse(uneReponse7);
+        bd.insererReponse(uneReponse8);
+        bd.insererReponse(uneReponse9);
+        bd.insererReponse(uneReponse10);
+        bd.insererReponse(uneReponse11);
+        bd.insererReponse(uneReponse12);
+        bd.insererReponse(uneReponse13);
+        bd.insererReponse(uneReponse14);
+        bd.insererReponse(uneReponse15);
+        bd.insererReponse(uneReponse16);
 
         bd.insererPlan(unPlan);
         bd.insererPlan(unPlan2);
         bd.insererPlan(unPlan3);
         bd.insererPlan(unPlan4);
-*/
+
+        Log.d(TAG, "data insered");
+
         bd.close();
         /*
         ListView listViewArticles = (ListView) findViewById(R.id.listViewTest);

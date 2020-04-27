@@ -16,7 +16,7 @@ import joliverie.example.quizzprojet.metier.Reponse;
 public class BDAdapter {
     private static final String TAG = "BDAdapter";
 
-    static final int VERSION_BDD = 16;
+    static final int VERSION_BDD = 17;
     private static final String NOM_BDD = "quizz_database";
     static final String TABLE_QUESTION = "table_question";
     static final String TABLE_REPONSE = "table_reponse";
@@ -95,12 +95,10 @@ public class BDAdapter {
     }
 
     public long insererLieu (Lieu unLieu){
-        Log.d(TAG, "récupération du lieu dans insererLieu : " + unLieu);
         //Création d'un ContentValues (fonctionne comme une HashMap)
         ContentValues values = new ContentValues();
         //on lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
         values.put(COL_LIEU_LIBELLE, unLieu.getLib_Lieu());
-        Log.d(TAG, "values : " + values.toString());
         //on insère l'objet dans la BDD via le ContentValues
         return db.insert(TABLE_LIEU, null, values);
     }
@@ -142,5 +140,12 @@ public class BDAdapter {
 
     public Cursor getNbQuestionByLieu(int id_lieu){
         return db.rawQuery("SELECT COUNT(*) FROM "+ TABLE_QUESTION +" WHERE " + COL_ID_LIEU + " = "+id_lieu +";", null );
+    }
+
+    public void cleartable() {
+        db.execSQL("DELETE FROM " + TABLE_LIEU + ";");
+        db.execSQL("DELETE FROM " + TABLE_PLAN + ";");
+        db.execSQL("DELETE FROM " + TABLE_QUESTION + ";");
+        db.execSQL("DELETE FROM " + TABLE_REPONSE + ";");
     }
 }
