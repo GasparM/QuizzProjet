@@ -16,7 +16,7 @@ import joliverie.example.quizzprojet.metier.Reponse;
 public class BDAdapter {
     private static final String TAG = "BDAdapter";
 
-    static final int VERSION_BDD = 25;
+    static final int VERSION_BDD = 33;
     private static final String NOM_BDD = "quizz_database";
     static final String TABLE_QUESTION = "table_question";
     static final String TABLE_REPONSE = "table_reponse";
@@ -109,6 +109,7 @@ public class BDAdapter {
         ContentValues values = new ContentValues();
         //on lui ajoute une valeur associé à une clé (qui est le nom de la colonne où on veut mettre la valeur)
         values.put(COL_PLAN_LIBELLE, unPlan.getUrl_photo());
+        values.put(COL_ID_LIEU, unPlan.getId_lieu());
         //on insère l'objet dans la BDD via le ContentValues
         return db.insert(TABLE_PLAN, null, values);
     }

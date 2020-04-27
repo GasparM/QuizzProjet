@@ -18,6 +18,7 @@ import joliverie.example.quizzprojet.metier.Reponse;
 
 import android.widget.ImageView;
 import android.util.Log;
+import android.widget.TextView;
 
 public class MapActivity extends AppCompatActivity {
     private static final String TAG = "MapActivity";
@@ -29,20 +30,28 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         getSupportActionBar().hide();
-        final int id_lieu = 1;
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+        Editor editor = pref.edit();
+
+        if(pref.getInt("ID_LIEU", -1) == -1) {
+            editor.putInt("ID_LIEU", 1);
+        }else{
+            editor.putInt("ID_LIEU", pref.getInt("ID_LIEU",-1)+1);
+        }
+        editor.commit();
+
+        final int id_lieu = pref.getInt("ID_LIEU", 1);
+
+
 
         Button next = (Button) findViewById(R.id.button);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref",0);
-                Editor editor = pref.edit();
+
                 Intent myIntent = new Intent(view.getContext(), QuestionActivity.class);
-                if(pref.getInt("ID_LIEU", -1) == -1) {
-                    editor.putInt("ID_LIEU", id_lieu);
-                }else{
-                    editor.putInt("ID_LIEU", pref.getInt("ID_LIEU",-1)+1);
-                }
-                editor.commit();
+
+                myIntent.putExtra("ID_QUESTION_ACTIF", 0 );
                 startActivityForResult(myIntent, 0);
             }
 
@@ -52,6 +61,8 @@ public class MapActivity extends AppCompatActivity {
         bd.open();
 
         image = (ImageView) findViewById(R.id.imageView4);
+
+
         Cursor c = bd.getPlanWithLieu(id_lieu);
 
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
@@ -73,12 +84,8 @@ public class MapActivity extends AppCompatActivity {
             else if (c.getString(1).equals("R.drawable.plan3")){
                 image.setImageResource(R.drawable.plan3);
             }
-            else if (c.getString(1).equals("R.drawable.plan4")){
-                image.setImageResource(R.drawable.plan4);
-            }
         }
         bd.close();
-    }
     }
 
     @Override
