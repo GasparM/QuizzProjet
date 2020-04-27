@@ -43,7 +43,6 @@ public class MapActivity extends AppCompatActivity {
                     editor.putInt("ID_LIEU", pref.getInt("ID_LIEU",-1)+1);
                 }
                 editor.commit();
-                myIntent.putExtra("ID_QUESTION_ACTIF", 0 );
                 startActivityForResult(myIntent, 0);
             }
 
@@ -80,4 +79,8 @@ public class MapActivity extends AppCompatActivity {
         }
         bd.close();
     }
+    }
+
+    @Override
+    public void onBackPressed(){}
 }
