@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         Editor editorBdd = prefBdd.edit();
 
         if(prefBdd.getInt("data", 0) == 0) {
-            Lieu unLieu = new Lieu( "Nantes", 1);
-            Lieu unLieu2 = new Lieu( "Paris", 2);
-            Lieu unLieu3 = new Lieu( "Lyon",3);
+            Lieu unLieu = new Lieu( "Self", 1);
+            Lieu unLieu2 = new Lieu( "Chappelle", 2);
+            Lieu unLieu3 = new Lieu( "Gymnase",3);
 
             Question uneQuestion = new Question ("Quel animal as tu ? ", 2);
             Question uneQuestion2 = new Question ("Quel age as-tu", 3);
