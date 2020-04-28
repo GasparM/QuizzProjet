@@ -43,7 +43,7 @@
         android:id="@+id/question"
         android:layout_width="316dp"
         android:layout_height="316dp"
-        android:text="Le but de ce quizz est de vous faire suivre un circuit dans l’enceinte de la joliverie en répondant à des questions.  Chaque lieu possèdent plusieurs questions qui comportent 4 réponses dont une bonne et 3 mauvaises. Après avoir fini les questions d’un lieu, l’application vous demandera de vous diriger vers le lieu suivant. A la fin du jeu, un score vous sera donné en fonction du temps de réponse par question.  "
+        android:text="Le but de ce quiz est de vous faire suivre un circuit dans l’enceinte de la Joliverie en répondant à des questions.  Chaque lieu possède plusieurs questions qui comportent 4 réponses dont une bonne et 3 mauvaises. Après avoir fini les questions d’un lieu, l’application vous demandera de vous diriger vers le lieu suivant. À la fin du jeu, un score vous sera donné en fonction de vos bonnes réponses."
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"

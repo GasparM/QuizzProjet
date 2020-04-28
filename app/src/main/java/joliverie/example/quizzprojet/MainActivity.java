@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         Editor editorBdd = prefBdd.edit();
 
         if(prefBdd.getInt("data", 0) == 0) {
-            Lieu unLieu = new Lieu( "Nantes", 1);
-            Lieu unLieu2 = new Lieu( "Paris", 2);
-            Lieu unLieu3 = new Lieu( "Lyon",3);
+            Lieu unLieu = new Lieu( "Self", 1);
+            Lieu unLieu2 = new Lieu( "Chappelle", 2);
+            Lieu unLieu3 = new Lieu( "Gymnase",3);
 
             Question uneQuestion = new Question ("Quel était le nom du BTS SIO avant 2004 ?", 1);
             Question uneQuestion2 = new Question ("Où se trouvait le service de reprographie avant sa situation actuelle dans le batiment ?", 1);
