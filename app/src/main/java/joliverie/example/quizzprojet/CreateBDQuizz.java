@@ -40,6 +40,11 @@ public class CreateBDQuizz extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         Log.d(TAG, "onCreate ... ");
 
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_QUESTION + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REPONSE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LIEU + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLAN + ";");
+
         // appelée lorsqu’aucune base n’existe et que la classe utilitaire doit en créer une
         //on créé la table à partir de la requête écrite dans la variable CREATE_BDD
         db.execSQL(CREATE_QUESTION_TABLE);

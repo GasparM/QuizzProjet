@@ -54,32 +54,37 @@ public class MainActivity extends AppCompatActivity {
             Lieu unLieu2 = new Lieu( "Paris", 2);
             Lieu unLieu3 = new Lieu( "Lyon",3);
 
-            Question uneQuestion = new Question ("Quel animal as tu ? ", 2);
-            Question uneQuestion2 = new Question ("Quel age as-tu", 3);
-            Question uneQuestion3 = new Question ("Quel taille fait-tu ?", 1);
-            Question uneQuestion4 = new Question ("Date de sortie de Iron Man", 1);
-            Question uneQuestion5 = new Question ("Date de création de la Joliverie",3);
+            Question uneQuestion = new Question ("Quel était le nom du BTS SIO avant 2004 ?", 1);
+            Question uneQuestion2 = new Question ("Où se trouvait le service de reprographie avant sa situation actuelle dans le batiment ?", 1);
+            Question uneQuestion3 = new Question ("Quel banque est partenaire de la Joliverie ?", 2);
+            Question uneQuestion4 = new Question ("Quelle est l'année de construction de la chapelle actuelle ?", 2);
+            Question uneQuestion5 = new Question ("De quelle époque de l'histoire datent les objets les plus anciens retrouvés sur le site de la Joliverie ?",3);
+            Question uneQuestion6 = new Question ("En quelle année a été créé le Centre de Formations Apprenti de la Joliverie ? ", 3);
 
-            Reponse uneReponse = new Reponse("chat", 1, 5 );
-            Reponse uneReponse2 = new Reponse("chien", 0, 5);
-            Reponse uneReponse3 = new Reponse("poule", 0, 5 );
-            Reponse uneReponse4 = new Reponse("dinausore", 0, 5 );
-            Reponse uneReponse5 = new Reponse("2 ans", 1, 2 );
-            Reponse uneReponse6 = new Reponse("3 ans", 0, 2 );
-            Reponse uneReponse7 = new Reponse("19 ans", 0, 2 );
-            Reponse uneReponse8 = new Reponse("2765 ans", 0, 2 );
-            Reponse uneReponse9 = new Reponse("1m30", 1, 3 );
-            Reponse uneReponse10 = new Reponse("3 pommes", 0, 3 );
-            Reponse uneReponse11 = new Reponse("1m70", 0, 3 );
-            Reponse uneReponse12 = new Reponse("Tu touches les étoiles", 0, 3 );
-            Reponse uneReponse13 = new Reponse("2003", 1, 4 );
-            Reponse uneReponse14 = new Reponse("1999", 0, 4 );
-            Reponse uneReponse15 = new Reponse("-457", 0, 4 );
-            Reponse uneReponse16 = new Reponse("2009", 0, 4 );
-            Reponse uneReponse17 = new Reponse("1999", 1, 1 );
-            Reponse uneReponse18 = new Reponse("2003", 0, 1 );
-            Reponse uneReponse19 = new Reponse("2009", 0, 1 );
-            Reponse uneReponse20 = new Reponse("-457", 0, 1 );
+            Reponse uneReponse = new Reponse("BTS Informatique de Getion", 1, 1 );
+            Reponse uneReponse2 = new Reponse("BTS Développeur", 0, 1);
+            Reponse uneReponse3 = new Reponse("BTS Réseaux", 0, 1 );
+            Reponse uneReponse4 = new Reponse("BTS Maintenance des PC", 0, 1 );
+            Reponse uneReponse5 = new Reponse("CDI Saint-Pierre", 0, 2 );
+            Reponse uneReponse6 = new Reponse("Salle du service de compatibilité - Direction générale", 0, 2 );
+            Reponse uneReponse7 = new Reponse("Bureau de la vie étudiante", 1, 2 );
+            Reponse uneReponse8 = new Reponse("Salle des professeur Saint-Joseph", 0, 2 );
+            Reponse uneReponse9 = new Reponse("Crédit agricole", 0, 3 );
+            Reponse uneReponse10 = new Reponse("Crédit mutuel", 1, 3 );
+            Reponse uneReponse11 = new Reponse("Banque Populaire", 0, 3 );
+            Reponse uneReponse12 = new Reponse("La Banque postale", 0, 3 );
+            Reponse uneReponse13 = new Reponse("1962", 1, 4 );
+            Reponse uneReponse14 = new Reponse("1951", 0, 4 );
+            Reponse uneReponse15 = new Reponse("1927", 0, 4 );
+            Reponse uneReponse16 = new Reponse("1970", 0, 4 );
+            Reponse uneReponse17 = new Reponse("Epoque de la pré-histoire", 0, 5 );
+            Reponse uneReponse18 = new Reponse("Epoque de la Renaissance 16ème Siécle", 0, 5 );
+            Reponse uneReponse19 = new Reponse("Epoque carolingienne", 0, 5 );
+            Reponse uneReponse20 = new Reponse("Epoque Napoléonienne", 1, 5 );
+            Reponse uneReponse21 = new Reponse("1972", 0, 6 );
+            Reponse uneReponse22 = new Reponse("1988", 1, 6 );
+            Reponse uneReponse23 = new Reponse("1978", 0, 6 );
+            Reponse uneReponse24 = new Reponse("1982", 0, 6 );
 
             Plan unPlan = new Plan("R.drawable.plan1", 1);
             Plan unPlan2 = new Plan("R.drawable.plan2", 2);
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             bd.insererQuestion(uneQuestion3);
             bd.insererQuestion(uneQuestion4);
             bd.insererQuestion(uneQuestion5);
+            bd.insererQuestion(uneQuestion6);
 
             bd. insererReponse(uneReponse);
             bd. insererReponse(uneReponse2);
@@ -115,6 +121,11 @@ public class MainActivity extends AppCompatActivity {
             bd. insererReponse(uneReponse18);
             bd. insererReponse(uneReponse19);
             bd. insererReponse(uneReponse20);
+            bd. insererReponse(uneReponse21);
+            bd. insererReponse(uneReponse22);
+            bd. insererReponse(uneReponse23);
+            bd. insererReponse(uneReponse24);
+
 
             bd.insererPlan(unPlan);
             bd.insererPlan(unPlan2);
