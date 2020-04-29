@@ -56,17 +56,17 @@ public class MainActivity extends AppCompatActivity {
 
             Question uneQuestion = new Question ("Quel était le nom du BTS SIO avant 2004 ?", 1);
             Question uneQuestion2 = new Question ("Où se trouvait le service de reprographie avant sa situation actuelle dans le batiment ?", 1);
-            Question uneQuestion3 = new Question ("Quel banque est partenaire de la Joliverie ?", 2);
+            Question uneQuestion3 = new Question ("Quelle banque est partenaire de la Joliverie ?", 2);
             Question uneQuestion4 = new Question ("Quelle est l'année de construction de la chapelle actuelle ?", 2);
             Question uneQuestion5 = new Question ("De quelle époque de l'histoire datent les objets les plus anciens retrouvés sur le site de la Joliverie ?",3);
             Question uneQuestion6 = new Question ("En quelle année a été créé le Centre de Formations Apprenti de la Joliverie ? ", 3);
 
-            Reponse uneReponse = new Reponse("BTS Informatique de Getion", 1, 1 );
+            Reponse uneReponse = new Reponse("BTS Informatique de Gestion", 1, 1 );
             Reponse uneReponse2 = new Reponse("BTS Développeur", 0, 1);
             Reponse uneReponse3 = new Reponse("BTS Réseaux", 0, 1 );
             Reponse uneReponse4 = new Reponse("BTS Maintenance des PC", 0, 1 );
             Reponse uneReponse5 = new Reponse("CDI Saint-Pierre", 0, 2 );
-            Reponse uneReponse6 = new Reponse("Salle du service de compatibilité - Direction générale", 0, 2 );
+            Reponse uneReponse6 = new Reponse("Salle du service de comptabilité - Direction générale", 0, 2 );
             Reponse uneReponse7 = new Reponse("Bureau de la vie étudiante", 1, 2 );
             Reponse uneReponse8 = new Reponse("Salle des professeur Saint-Joseph", 0, 2 );
             Reponse uneReponse9 = new Reponse("Crédit agricole", 0, 3 );
