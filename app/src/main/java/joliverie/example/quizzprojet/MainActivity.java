@@ -50,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
         Editor editorBdd = prefBdd.edit();
 
         if(prefBdd.getInt("data", 0) == 0) {
-            Lieu unLieu = new Lieu( "Self", 1);
+            Lieu unLieu = new Lieu( "Saint Jospeh", 1);
             Lieu unLieu2 = new Lieu( "Chappelle", 2);
-            Lieu unLieu3 = new Lieu( "Gymnase",3);
+            Lieu unLieu3 = new Lieu( "Joliverie",3);
 
             Question uneQuestion = new Question ("Quel était le nom du BTS SIO avant 2004 ?", 1);
             Question uneQuestion2 = new Question ("Où se trouvait le service de reprographie avant sa situation actuelle dans le batiment ?", 1);
@@ -60,6 +60,11 @@ public class MainActivity extends AppCompatActivity {
             Question uneQuestion4 = new Question ("Quelle est l'année de construction de la chapelle actuelle ?", 2);
             Question uneQuestion5 = new Question ("De quelle époque de l'histoire datent les objets les plus anciens retrouvés sur le site de la Joliverie ?",3);
             Question uneQuestion6 = new Question ("En quelle année a été créé le Centre de Formations Apprenti de la Joliverie ? ", 3);
+            Question uneQuestion7 = new Question ("Quel est l'établissement qui a fusionné avec la Joliverie en 2020 ?", 3);
+            Question uneQuestion8 = new Question ("Le pôle productique du lycée professionnel a été labellisé HTEC en 2015. Que signifie ce signe ?", 1);
+            Question uneQuestion9 = new Question ("Quelle est la meilleur performance (en km/l) réalisée par Microjoule depuis son origine lors des courses du Shell EcoMarathon ?", 1);
+            Question uneQuestion10 = new Question("En quelle année fût inauguré le nouveau bâtiment C : Pôle des process Industriels ? ", 1);
+
 
             Reponse uneReponse = new Reponse("BTS Informatique de Gestion", 1, 1 );
             Reponse uneReponse2 = new Reponse("BTS Développeur", 0, 1);
@@ -85,6 +90,22 @@ public class MainActivity extends AppCompatActivity {
             Reponse uneReponse22 = new Reponse("1988", 1, 6 );
             Reponse uneReponse23 = new Reponse("1978", 0, 6 );
             Reponse uneReponse24 = new Reponse("1982", 0, 6 );
+            Reponse uneReponse25 = new Reponse("Notre Dame", 0, 7 );
+            Reponse uneReponse26 = new Reponse("Saint Félix", 0, 7 );
+            Reponse uneReponse27 = new Reponse("Les Bourdonnières", 0, 7 );
+            Reponse uneReponse28 = new Reponse("La Baugerie", 1, 7 );
+            Reponse uneReponse29 = new Reponse("Hautes Technologies En Commande numérique", 0, 8 );
+            Reponse uneReponse30 = new Reponse("Haute Technologie Environnementale Créative", 0, 8 );
+            Reponse uneReponse31 = new Reponse("Haas Technical Education Center", 1, 8 );
+            Reponse uneReponse32 = new Reponse("High Tech Engineering Center", 0, 8 );
+            Reponse uneReponse33 = new Reponse("2638 km/l", 0, 9 );
+            Reponse uneReponse34 = new Reponse("3771 km/l", 1, 9 );
+            Reponse uneReponse35 = new Reponse("4522 km/l", 0,9 );
+            Reponse uneReponse36 = new Reponse("3224 km/l", 0, 9 );
+            Reponse uneReponse37 = new Reponse("1920", 0, 10 );
+            Reponse uneReponse38 = new Reponse("1994", 0, 10);
+            Reponse uneReponse39 = new Reponse("2014", 0,10);
+            Reponse uneReponse40 = new Reponse("2016", 1, 10 );
 
             Plan unPlan = new Plan("R.drawable.plan1", 1);
             Plan unPlan2 = new Plan("R.drawable.plan2", 2);
@@ -100,6 +121,11 @@ public class MainActivity extends AppCompatActivity {
             bd.insererQuestion(uneQuestion4);
             bd.insererQuestion(uneQuestion5);
             bd.insererQuestion(uneQuestion6);
+            bd.insererQuestion(uneQuestion7);
+            bd.insererQuestion(uneQuestion8);
+            bd.insererQuestion(uneQuestion9);
+            bd.insererQuestion(uneQuestion10);
+
 
             bd. insererReponse(uneReponse);
             bd. insererReponse(uneReponse2);
@@ -125,7 +151,22 @@ public class MainActivity extends AppCompatActivity {
             bd. insererReponse(uneReponse22);
             bd. insererReponse(uneReponse23);
             bd. insererReponse(uneReponse24);
-
+            bd.insererReponse(uneReponse25);
+            bd.insererReponse(uneReponse26);
+            bd.insererReponse(uneReponse27);
+            bd.insererReponse(uneReponse28);
+            bd.insererReponse(uneReponse29);
+            bd.insererReponse(uneReponse30);
+            bd.insererReponse(uneReponse31);
+            bd.insererReponse(uneReponse32);
+            bd.insererReponse(uneReponse33);
+            bd.insererReponse(uneReponse34);
+            bd.insererReponse(uneReponse35);
+            bd.insererReponse(uneReponse36);
+            bd.insererReponse(uneReponse37);
+            bd.insererReponse(uneReponse38);
+            bd.insererReponse(uneReponse39);
+            bd.insererReponse(uneReponse40);
 
             bd.insererPlan(unPlan);
             bd.insererPlan(unPlan2);
